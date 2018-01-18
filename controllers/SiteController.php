@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\ProductForm;
 
 class SiteController extends Controller
 {
@@ -122,5 +123,22 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionSay($message = 'Hello')
+    {
+        return $this->render('say',['message' => $message]);
+    }
+    public function actionProduct()
+    {
+        $model= new ProductForm();
+
+        if($model->load(Yii::$app->request->post())&&$model->validate()){
+
+          return $this->render('product-confirm',['model' => $model]);
+        }else{
+
+          return $this->render('product',['model' => $model]);
+        }
     }
 }

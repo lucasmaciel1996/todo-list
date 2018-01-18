@@ -10,9 +10,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+    <div class="jumbotron">
+        <h1>Todo-list</h1>
 
-    <code><?= __FILE__ ?></code>
+        <p class="lead">Simple design of using php with framework yii, for language learning! :)</p>
+
+    </div>
+        <div class="body-content">
+
+
+        </div>
+    </div>
+
+   <!-- endereço do arquivo
+   <code><?= __FILE__ ?></code> -->
 </div>
