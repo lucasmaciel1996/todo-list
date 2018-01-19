@@ -131,7 +131,7 @@ class SiteController extends Controller
     }
     public function actionProduct()
     {
-        $model= new ProductForm();
+        $model = new ProductForm();
 
         if($model->load(Yii::$app->request->post())&&$model->validate()){
 
