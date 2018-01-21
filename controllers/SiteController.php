@@ -133,9 +133,9 @@ class SiteController extends Controller
     {
         $model = new ProductForm();
 
-        if($model->load(Yii::$app->request->post())&&$model->validate()){
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
 
-          return $this->render('product-confirm',['model' => $model]);
+          return $this->render('product-confirm', ['model' => $model]);
         }else{
 
           return $this->render('product',['model' => $model]);
