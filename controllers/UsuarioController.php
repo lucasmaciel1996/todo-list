@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Produto;
-use app\models\ProdutoSearch;
+use app\models\Usuario;
+use app\models\UsuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductController implements the CRUD actions for Produto model.
+ * UsuarioController implements the CRUD actions for Usuario model.
  */
-class ProductController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class ProductController extends Controller
     }
 
     /**
-     * Lists all Produto models.
+     * Lists all Usuario models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProdutoSearch();
+        $searchModel = new UsuarioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Displays a single Produto model.
+     * Displays a single Usuario model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,16 +58,16 @@ class ProductController extends Controller
     }
 
     /**
-     * Creates a new Produto model.
+     * Creates a new Usuario model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Produto();
+        $model = new Usuario();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->code_produto]);
+            return $this->redirect(['view', 'id' => $model->code_usuario]);
         }
 
         return $this->render('create', [
@@ -76,7 +76,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Updates an existing Produto model.
+     * Updates an existing Usuario model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +87,7 @@ class ProductController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->code_produto]);
+            return $this->redirect(['view', 'id' => $model->code_usuario]);
         }
 
         return $this->render('update', [
@@ -96,7 +96,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Deletes an existing Produto model.
+     * Deletes an existing Usuario model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class ProductController extends Controller
     }
 
     /**
-     * Finds the Produto model based on its primary key value.
+     * Finds the Usuario model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Produto the loaded model
+     * @return Usuario the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Produto::findOne($id)) !== null) {
+        if (($model = Usuario::findOne($id)) !== null) {
             return $model;
         }
 

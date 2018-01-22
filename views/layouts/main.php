@@ -40,20 +40,10 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            [
-                  'label' => 'Register',
-                   'items'=>[
-                                [
-                                    'label'=>'Product',
-                                    'url' => ['/site/product']
-                                ],
-                                [
-                                   'label'=>'New Option',
-                                   'url'=>'#'
-                                ]
-                            ]
-            ],
+            ['label' => 'Register', 'url' => ['product/index'], 'items' => [
+                 ['label' => 'Product', 'url' => ['product/index', 'tag' => 'new']],
+                 ['label' => 'User', 'url' => ['usuario/index', 'tag' => 'new']],
+            ]],
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
