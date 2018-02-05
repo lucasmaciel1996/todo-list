@@ -28,10 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'code_produto',
             'descricao',
             'valor',
-            'situacao',
+            'id_situ',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    
 </div>

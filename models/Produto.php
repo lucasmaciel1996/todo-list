@@ -10,7 +10,9 @@ use Yii;
  * @property int $code_produto
  * @property string $descricao
  * @property int $valor
- * @property string $situacao
+ * @property int $id_situ
+ *
+ * @property Situacao $situ
  */
 class Produto extends \yii\db\ActiveRecord
 {
@@ -28,10 +30,10 @@ class Produto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['descricao','valor'], 'required'],
-            [['valor'], 'integer'],
+            [['descricao'], 'required'],
+            [['valor', 'id_situ'], 'integer'],
             [['descricao'], 'string', 'max' => 25],
-            [['situacao'], 'string', 'max' => 10],
+            [['id_situ'], 'exist', 'skipOnError' => true, 'targetClass' => Situacao::className(), 'targetAttribute' => ['id_situ' => 'id_situacao']],
         ];
     }
 
@@ -41,10 +43,18 @@ class Produto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'code_produto' => 'ID Produto',
+            'code_produto' => 'Code Produto',
             'descricao' => 'Descricao',
             'valor' => 'Valor',
-            'situacao' => 'Situacao',
+            'id_situ' => 'Id Situ',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSitu()
+    {
+        return $this->hasOne(Situacao::className(), ['id_situacao' => 'id_situ']);
     }
 }
